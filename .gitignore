@@ -1,0 +1,8 @@
+bin/
+out/
+target/
+lib/
+.idea/
+*.iws
+*iml
+*.navData

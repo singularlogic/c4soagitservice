@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 	xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xmlns:p="http://www.springframework.org/schema/p"
+        xmlns:aop="http://www.springframework.org/schema/aop" 
+        xmlns:tx="http://www.springframework.org/schema/tx"
+        xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="        http://www.springframework.org/schema/beans 
+                                    http://www.springframework.org/schema/beans/spring-beans.xsd
+                                    http://www.springframework.org/schema/data/jpa
+                                    http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+				                    http://www.springframework.org/schema/tx
+                                    http://www.springframework.org/schema/tx/spring-tx.xsd
+                                    http://www.springframework.org/schema/aop 
+                                    http://www.springframework.org/schema/aop/spring-aop.xsd                                  
+				                    http://www.springframework.org/schema/context
+                                    http://www.springframework.org/schema/context/spring-context.xsd"
+                                    >
+     
+     <import resource="infrastructure.xml" /> 
+     
+     <!-- Handles @Autowired -->
+     <context:annotation-config />   
+    
+     <!-- identifies beans (@Components @Service etc) -->
+     <context:component-scan base-package="eu.cloud4soa.c4sgitservice.backingbeans" />
+          
+     <jpa:repositories base-package="eu.cloud4soa.c4sgitservice.dao" />
+
+          
+</beans>
