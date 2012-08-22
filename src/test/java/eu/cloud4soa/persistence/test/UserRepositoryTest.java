@@ -28,7 +28,7 @@ import eu.cloud4soa.c4sgitservice.datamodel.*;
  * Time: 12:30 PM
  */
 
-//@Ignore
+@Ignore
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"file:**/WEB-INF/applicationContext.xml"})
 public class UserRepositoryTest {
@@ -38,14 +38,13 @@ public class UserRepositoryTest {
     
     @Autowired
     UserRepository userdao;
-    
-    //@Ignore
+
     @Test
     public void testWiring(){
         Assert.assertNotNull(userdao);
     }
     
-    //@Ignore
+    @Ignore
     @Test
     public void testCreateUser(){
         User user = new User();
@@ -54,21 +53,28 @@ public class UserRepositoryTest {
         userdao.save(user);
     }
 
-    //@Ignore
+    @Ignore
     @Test
     public void testfindUserById(){
         User user1 = userdao.findByUserId(new Long(1));
         logger.info("User  with id 1:"+user1);
     }
 
-    //@Ignore
+    @Ignore
     @Test
     public void testfindUserByUsername(){
         List<User> users = userdao.findByUsername("usernametest");
         logger.info("Users  with username usernametest:"+users);
     }
 
-    //@Ignore
+    @Ignore
+    @Test
+    public void testfindUserByUsernameAndPassword(){
+        List<User> users = userdao.findByUsernameAndPassword("testuser","testuser");
+        logger.info("Users  with username and password:"+users);
+    }
+
+    @Ignore
     @Test
     public void testdeleteUsers(){
         List<User> users = userdao.findByUsername("usernametest");

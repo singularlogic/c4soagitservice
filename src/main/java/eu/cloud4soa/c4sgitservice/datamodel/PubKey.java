@@ -19,7 +19,7 @@ public class PubKey {
     @Column(name = "PUBKEYID")
     private Long pubkeyid;
 
-    @Column(name = "PUBKEY")
+    @Column(name = "PUBKEY",length = 500)
     private String pubkey;
 
     @ManyToOne

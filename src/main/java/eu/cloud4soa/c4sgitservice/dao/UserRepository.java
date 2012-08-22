@@ -24,6 +24,8 @@ public interface UserRepository extends JpaRepository<User,Long>{
 
     public List<User> findByUsername(String username);
 
+    public List<User> findByUsernameAndPassword(String username,String password);
+
     //public List<User> findByUserIdLike(String userid);
     
     //@Query("select count (*) from USERS u where u.userId like ?1 ")

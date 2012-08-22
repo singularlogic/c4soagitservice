@@ -23,9 +23,12 @@
      <!-- Handles @Autowired -->
      <context:annotation-config />   
     
-     <!-- identifies beans (@Components @Service etc) -->
+     <!-- identifies beans (@Components @Service etc)  -->
      <context:component-scan base-package="eu.cloud4soa.c4sgitservice.backingbeans" />
-          
+     <context:component-scan base-package="eu.cloud4soa.c4sgitservice.ws" />
+    <context:component-scan base-package="eu.cloud4soa.c4sgitservice.utils" />
+
+    <!-- jpa repositories -->
      <jpa:repositories base-package="eu.cloud4soa.c4sgitservice.dao" />
 
           

@@ -11,7 +11,13 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>c4sgitservice</name>
     <url>http://maven.apache.org</url>
-  
+    <scm>
+        <connection>scm:git://github.com/SingularLogic/c4soagitservice.git</connection>
+        <developerConnection>scm:git://github.com/SingularLogic/c4soagitservice.git</developerConnection>
+        <url>https://github.com/SingularLogic/c4soagitservice</url>
+    </scm>
+
+
     <properties>
         <org.springframework.version>3.1.1.RELEASE</org.springframework.version>
         <org.springframework.springdatajpa.version>1.0.3.RELEASE</org.springframework.springdatajpa.version>  
@@ -210,48 +216,54 @@
 
         <!-- Server Side libs that need to be excluded  -->
         
-        <!-- JSF implementation -->
+        <!-- JSF implementation runtime should be changed to provided when JBoss profile is selected-->
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-api</artifactId>
 			<version>2.1.7</version>
-                        <scope>provided</scope>
+            <scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-impl</artifactId>
 			<version>2.1.7</version>
-                        <scope>provided</scope>
+            <scope>runtime</scope>
 		</dependency>
  
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
-                        <scope>provided</scope>
+            <scope>runtime</scope>
 		</dependency>
  
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<version>2.5</version>
-                        <scope>provided</scope>
+            <scope>runtime</scope>
 		</dependency>
  
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jsp-api</artifactId>
 			<version>2.1</version>
-                        <scope>provided</scope>
+            <scope>runtime</scope>
 		</dependency>
- 
-                <dependency>
-                    <groupId>org.glassfish.web</groupId>
-                    <artifactId>el-impl</artifactId>
-                    <version>2.2</version>
-                    <!-- <scope>provided</scope> -->
-                </dependency>           
-               
+
+        <dependency>
+            <groupId>org.glassfish.web</groupId>
+            <artifactId>el-impl</artifactId>
+            <version>2.2</version>
+        </dependency>
+
+         <!-- JAX-WS -->
+        <dependency>
+            <groupId>com.sun.xml.ws</groupId>
+            <artifactId>jaxws-rt</artifactId>
+            <version>2.2.6-2</version>
+        </dependency>
+
     </dependencies>
     
     <repositories>
@@ -261,6 +273,7 @@
             <url>http://repository.primefaces.org</url>
             <layout>default</layout>            
         </repository>
+
     </repositories>
         
     
@@ -274,6 +287,7 @@
                     <configuration>
                             <source>1.6</source>
                             <target>1.6</target>
+                            <encoding>UTF-8</encoding>
                     </configuration>
             </plugin>
 
@@ -281,6 +295,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>buildnumber-maven-plugin</artifactId>
+                <version>1.1</version>
                 <executions>
                     <execution>
                         <phase>validate</phase>
@@ -291,8 +306,31 @@
                 </executions>
             </plugin>
 
+
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-checkstyle-plugin</artifactId>
+            <version>2.9.1</version>
+
+            <executions>
+                <execution>
+                    <id>checkstyle-code-verification</id>
+                    <phase>compile</phase>
+                    <goals>
+                        <goal>checkstyle</goal>
+                    </goals>
+                    <configuration>
+                        <!--<configLocation>customer-checkstyle.xml</configLocation> -->
+                        <failsOnError>false</failsOnError>
+                        <consoleOutput>true</consoleOutput>
+                        <encoding>utf-8</encoding>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+
             <!-- Packaging plugin -->
-            <!--<plugin>
+            <plugin>
                 <artifactId>maven-war-plugin</artifactId>
                 <configuration>
                     <archive>
@@ -317,7 +355,7 @@
                     </execution>
                 </executions>
             </plugin>
-            -->
+
 
             <!-- Test plugin -->
             <plugin>
@@ -361,6 +399,8 @@
                     </execution>
                 </executions>
             </plugin>
+
+
 
     </plugins>
     

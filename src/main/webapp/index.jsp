@@ -1,15 +1,12 @@
-<%-- 
-    Document   : index
-    Created on : Dec 25, 2011, 10:35:36 PM
-    Author     : pgouvas
---%>
+<%@ page language="java" pageEncoding="UTF-8"%>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>C4Soa Git Proxy Server</title>
+</head>
+<body>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<a href="/services/GitServices">Interacting Web Services</a>
 
-<%
-    if (session.getAttribute("userid")==null){
-        response.sendRedirect("jsfs/login.jsf");
-    } else {
-        response.sendRedirect("jsfs/initial.jsf");
-    }
-%>
+</body>
+</html>

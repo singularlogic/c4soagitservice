@@ -5,8 +5,8 @@ package eu.cloud4soa.c4sgitservice.backingbeans;
  * @author Panagiotis Gouvas
  */
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+//import javax.faces.bean.ManagedBean;
+//import javax.faces.bean.RequestScoped;
 
 import eu.cloud4soa.c4sgitservice.dao.UserRepository;
 import org.apache.commons.logging.Log;
@@ -17,9 +17,10 @@ import org.springframework.stereotype.Component;
 
 
 @Component
-@Scope(value = "request")
-@ManagedBean
-@RequestScoped
+//TODO add a maven profile that includes the JSF libaries in Tomcat
+//@Scope(value = "request")
+//@ManagedBean
+//@RequestScoped
 public class LoginBean {
     
     protected final Log log = LogFactory.getLog(getClass());

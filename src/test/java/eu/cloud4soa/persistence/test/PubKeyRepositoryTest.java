@@ -7,6 +7,7 @@ import eu.cloud4soa.c4sgitservice.datamodel.User;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ import java.util.List;
  * Time: 3:20 PM
  */
 
-//@Ignore
+@Ignore
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"file:**/WEB-INF/applicationContext.xml"})
 public class PubKeyRepositoryTest {
@@ -35,7 +36,6 @@ public class PubKeyRepositoryTest {
     @Autowired
     UserRepository userdao;
 
-    //@Ignore
     @Test
     public void testWiring(){
         Assert.assertNotNull(pubkeydao);
@@ -43,7 +43,7 @@ public class PubKeyRepositoryTest {
     }
 
 
-    //@Ignore
+    @Ignore
     @Test
     public void testCreatePubKey(){
         User user = new User();
@@ -61,7 +61,7 @@ public class PubKeyRepositoryTest {
 
     }//EoM
 
-    //@Ignore
+    @Ignore
     @Test
     public void testFindByUser(){
         List<User> users = userdao.findByUsername("usernametest1") ;
@@ -71,7 +71,7 @@ public class PubKeyRepositoryTest {
         logger.info("Pubkeys for user: "+ user+" "+pubkeys.size());
     }//EoM
 
-    //@Ignore
+    @Ignore
     @Test
     public void testDeletePubKey(){
        List<PubKey> pubkeys = pubkeydao.findByPubkey("testkey");
@@ -82,7 +82,7 @@ public class PubKeyRepositoryTest {
     }//EoM
 
 
-    //@Ignore
+    @Ignore
     @Test
     public void testDeleteRemainingUsers(){
         List<User> users = userdao.findByUsername("usernametest1");
@@ -91,5 +91,17 @@ public class PubKeyRepositoryTest {
             userdao.delete(user);
         }
     }//EoM
+
+    @Ignore
+    @Test
+    public void testFindByUserAndPubkey(){
+        List<User> users = userdao.findByUsername("testuser") ;
+        User user = null;
+        if (users.size()>0) user=users.get(0);
+        String pubkey="pubkey";
+        List<PubKey> pubkeys = pubkeydao.findByUserAndPubkey(user,pubkey);
+        logger.info("Pubkeys for user: "+ user+" "+pubkeys.size());
+    }//EoM
+
 
 }

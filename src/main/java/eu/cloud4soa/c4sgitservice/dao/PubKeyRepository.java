@@ -23,4 +23,8 @@ public interface PubKeyRepository extends JpaRepository<PubKey,Long> {
 
     public List<PubKey> findByPubkey(String pubkey);
 
+    public List<PubKey> findByUserAndPubkey(User user,String pubkey);
+
+    public List<PubKey> findByUserAndPubkeyid(User user,Long pubkeyid);
+
 }
