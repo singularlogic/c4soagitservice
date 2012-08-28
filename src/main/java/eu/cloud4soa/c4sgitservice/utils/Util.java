@@ -43,14 +43,14 @@ public class Util {
         return ret;
     }
 
-    public static String createProxyGitSegment(String repoid, String proxyname, String url, String reponame){
+    public static String createProxyGitSegment(String proxyname, String url, String reponame){
         String ret="";
-        ret="#repo"+repoid+"                                                                                          \n" +
-             "REPO"+repoid+"=\""+reponame+"\"                                                                         \n" +
-             "if [ \"$repo\" == \"'"+proxyname+"'\" ]; then                                                           \n" +
-             "        exec /usr/bin/ssh -oBatchMode=yes -i \"$C4SSERVER_KEY\" "+url+" \"$cmd\" \"'$REPO"+repoid+"'\"  \n" +
-             "fi                                                                                                      \n" +
-             "#repo"+repoid+"end                                                                                      \n";
+        ret="#repo"+proxyname+"                                                                                             \n" +
+             "REPO=\""+reponame+"\"                                                                                         \n" +
+             "if [ \"$repo\" == \"'"+proxyname+"'\" ]; then                                                                 \n" +
+             "        exec /usr/bin/ssh -oBatchMode=yes -i \"$C4SSERVER_KEY\" "+url+" \"$cmd\" \"'$REPO'\"                  \n" +
+             "fi                                                                                                            \n" +
+             "#repo"+proxyname+"end                                                                                         \n";
         return ret;
     }
 
@@ -76,9 +76,9 @@ public class Util {
     }
 
 
-    public static String createSedBlockForProxyGit(String repoid){
+    public static String createSedBlockForProxyGit(String tag){
         String ret="";
-        ret= " /^#repo"+repoid+"/,/"+"#repo"+repoid+"end"+"/d ";
+        ret= " /^#repo"+tag+"/,/"+"#repo"+tag+"end"+"/d ";
         return ret;
     }
 
@@ -111,11 +111,11 @@ public class Util {
         return retvalue;
     }
 
-    public static synchronized int replaceBlockWithSedForProxyGit(String filename, String repoid){
+    public static synchronized int replaceBlockWithSedForProxyGit(String filename, String tag){
         int retvalue = 1; //1=ERROR 0=OK
 
         try {
-            String sedblock = createSedBlockForProxyGit(repoid);
+            String sedblock = createSedBlockForProxyGit(tag);
             System.out.println(" sed -e "+sedblock +" "+filename );
             String[] command = new String[] {"sed" ,
                     "-i"        ,  // -i is for replace // -e is used for piping

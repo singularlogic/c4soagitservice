@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<a href="/services/GitServices">Interacting Web Services</a>
+<a href="./services/GitServices">Interacting Web Services</a>
 
 </body>
 </html>

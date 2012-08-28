@@ -10,9 +10,9 @@
 
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
 		<property name="driverClass" value="com.mysql.jdbc.Driver" /> <!-- ORD{dataSource.driverClass} -->
- 		<property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/c4sgitserver?characterEncoding=UTF-8" /> <!-- ORD{dataSource.protocol}ORD{dataSource.host}:ORD{dataSource.port}:ORD{dataSource.database} -->
-		<property name="user" value="root" />   <!-- ORD{dataSource.user} -->
-		<property name="password" value="1q2w3e" />    <!-- ORD{dataSource.password} -->
+ 		<property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/c4s?characterEncoding=UTF-8" /> <!-- ORD{dataSource.protocol}ORD{dataSource.host}:ORD{dataSource.port}:ORD{dataSource.database} -->
+		<property name="user" value="c4s" />   <!-- ORD{dataSource.user} -->
+		<property name="password" value="!c4s!" />    <!-- ORD{dataSource.password} -->
 		<property name="minPoolSize" value="5" />  <!-- ORD{dataSource.minPoolSize} -->
 		<property name="maxPoolSize" value="100" />  <!-- ORD{dataSource.maxPoolSize} -->
 		<property name="acquireIncrement" value="1" />  <!-- ORD{dataSource.acquireIncrement} -->

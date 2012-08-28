@@ -11,7 +11,7 @@ import javax.persistence.*;
  * Time: 12:30 PM
  */
 
-@Entity(name="USERS")
+@Entity(name="C4sUser")
 public class User implements Serializable {
     
     private static final long serialVersionUID = 1L;
