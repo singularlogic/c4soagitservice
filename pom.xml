@@ -309,7 +309,7 @@
 
     </dependencies>
 
-<!--
+
     <repositories>
         <repository>
             <id>prime-repo</id>
@@ -318,7 +318,7 @@
             <layout>default</layout>            
         </repository>
     </repositories>
--->
+
     
 <build>  
     <plugins>
