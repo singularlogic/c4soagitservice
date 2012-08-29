@@ -43,14 +43,14 @@ public class Util {
         return ret;
     }
 
-    public static String createProxyGitSegment(String proxyname, String url, String reponame){
+    public static String createProxyGitSegment(String proxyid, String proxyname, String url, String reponame){
         String ret="";
-        ret="#repo"+proxyname+"                                                                                             \n" +
+        ret="#proxy"+proxyid+"                                                                                             \n" +
              "REPO=\""+reponame+"\"                                                                                         \n" +
              "if [ \"$repo\" == \"'"+proxyname+"'\" ]; then                                                                 \n" +
              "        exec /usr/bin/ssh -oBatchMode=yes -i \"$C4SSERVER_KEY\" "+url+" \"$cmd\" \"'$REPO'\"                  \n" +
              "fi                                                                                                            \n" +
-             "#repo"+proxyname+"end                                                                                         \n";
+             "#proxy"+proxyid+"end                                                                                         \n";
         return ret;
     }
 
@@ -78,7 +78,7 @@ public class Util {
 
     public static String createSedBlockForProxyGit(String tag){
         String ret="";
-        ret= " /^#repo"+tag+"/,/"+"#repo"+tag+"end"+"/d ";
+        ret= " /^#proxy"+tag+"/,/"+"#proxy"+tag+"end"+"/d ";
         return ret;
     }
 

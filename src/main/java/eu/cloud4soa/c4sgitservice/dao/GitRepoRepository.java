@@ -19,10 +19,6 @@ public interface GitRepoRepository extends JpaRepository<GitRepo,Long> {
 
     public List<GitRepo> findByGitrepo(String gitrepo);
 
-    public List<GitRepo> findByProxyname(String proxyname);
-
-    public List<GitRepo> findByUserAndProxyname(User user, String proxyname);
-
     public List<GitRepo> findByUserAndGitrepoid(User user, Long gitrepoid);
 
 }

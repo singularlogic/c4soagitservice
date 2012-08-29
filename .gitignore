@@ -6,3 +6,6 @@ lib/
 *.iws
 *iml
 *.navData
+.svn
+*.svn
+dist/

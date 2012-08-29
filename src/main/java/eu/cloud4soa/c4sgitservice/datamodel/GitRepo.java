@@ -16,10 +16,6 @@ public class GitRepo {
     @Column(name = "GITREPOID")
     private Long  gitrepoid;
 
-
-    @Column(name = "PROXYNAME")
-    private String  proxyname;
-
     @Column(name = "GITURL")
     private String  giturl;
 
@@ -31,20 +27,25 @@ public class GitRepo {
     private User user;
 
 
+    @ManyToOne
+    @JoinColumn(name = "PAASID")
+    private Paas paas;
+
+
+    public Paas getPaas() {
+        return paas;
+    }
+
+    public void setPaas(Paas paas) {
+        this.paas = paas;
+    }
+
     public Long getGitrepoid() {
         return gitrepoid;
     }
 
     public void setGitrepoid(Long gitrepoid) {
         this.gitrepoid = gitrepoid;
-    }
-
-    public String getProxyname() {
-        return proxyname;
-    }
-
-    public void setProxyname(String proxyname) {
-        this.proxyname = proxyname;
     }
 
     public String getGiturl() {
