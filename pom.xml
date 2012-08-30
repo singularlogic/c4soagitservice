@@ -384,6 +384,7 @@
                             <Implementation-Build>${buildNumber}</Implementation-Build>
                         </manifestEntries>
                     </archive>
+                     <warName>${name}</warName>
                 </configuration>
                 <executions>
                     <execution>
