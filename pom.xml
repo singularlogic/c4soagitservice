@@ -559,8 +559,8 @@
                          </goals>
                          <configuration>
                               <url>http://127.0.0.1:8080/manager/html</url>
-                              <username>tomcat</username>
-                              <password>tomcat</password>
+                              <username>c4sadmin</username>
+                              <password>c4sadmin</password>
                              <update>true</update>
                          </configuration>
                      </execution>

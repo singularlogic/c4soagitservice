@@ -20,7 +20,7 @@ import java.util.Properties;
 
 
 @WebService
-//@Component
+@Component
 public class GitServices extends SpringBeanAutowiringSupport {
 
     protected final Log logger = LogFactory.getLog(getClass());
