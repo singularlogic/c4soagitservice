@@ -559,7 +559,7 @@
                          </goals>
                          <configuration>
                              <warFile> ${project.build.directory}/${name}.war</warFile>
-                              <url>http://127.0.0.1:8080/manager/html</url>
+                              <url>http://127.0.0.1:8888/manager/html</url>
                               <username>c4sadmin</username>
                               <password>c4sadmin</password>
                              <update>true</update>
